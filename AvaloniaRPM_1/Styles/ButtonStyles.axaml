@@ -1,0 +1,25 @@
+<Style xmlns="https://github.com/avaloniaui"
+       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <Style Selector="Button.AddBook">
+        <Setter Property="Background" Value="#3D3D3D"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Padding" Value="10"/>
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="CornerRadius" Value="8"/>
+    </Style>
+
+    <Style Selector="Button.Secondary">
+        <Setter Property="Background" Value="Gray"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Padding" Value="10"/>
+        <Setter Property="FontSize" Value="16"/>
+    </Style>
+    
+    <Style Selector="Button.Delete">
+        <Setter Property="Background" Value="#FF0000"></Setter>
+        <Setter Property="Foreground" Value="#FFFFFF"></Setter>
+        <Setter Property="Padding" Value="5"/>
+        <Setter Property="CornerRadius" Value="8"/>
+    </Style>
+</Style>

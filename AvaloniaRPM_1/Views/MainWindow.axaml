@@ -1,0 +1,43 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:AvaloniaRPM_1.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:views="clr-namespace:AvaloniaRPM_1.Views"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="AvaloniaRPM_1.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="AvaloniaRPM_1"
+        Background="#282828">
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel />
+    </Design.DataContext>
+
+    <Grid>
+        <ScrollViewer>
+            <ItemsControl x:Name="BookItemsControl" ItemsSource="{Binding Books}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <views:BookInfoControl DeleteBookRequested="OnDeleteBookRequested" EditBookRequested="OnEditBookRequested" Margin="10" DataContext="{Binding}"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+        
+        <Button Classes="AddBook" Click="ButtonOnClick_AddBook" Margin="0,0,0,20" Padding="50, 20, 50, 20" VerticalAlignment="Bottom" HorizontalAlignment="Center">
+            Добавить книгу
+        </Button>
+        
+        <views:EditBookDialog x:Name="EditBookDialog"></views:EditBookDialog>
+        <views:DeleteBookDialog x:Name="DeleteBookDialog"></views:DeleteBookDialog>
+        <views:AddBookDialog x:Name="AddBookDialog"></views:AddBookDialog>
+        <views:ErrorDialog x:Name="ErrorDialog"></views:ErrorDialog>
+    </Grid>
+</Window>
